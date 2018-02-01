@@ -1,0 +1,24 @@
+/*table td {*/
+    /*border: 1px solid #e5e5e5;*/
+    /*height: 36px;*/
+    /*line-height: 36px;*/
+    /*padding-left: 20px;*/
+/*}*/
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/*table {*/
+    /*border-collapse: collapse;*/
+    /*width: 100%;*/
+/*}*/
+
+.div_root {
+    max-width: 674px;
+    margin: 0 auto;
+    height: 100%;
+}

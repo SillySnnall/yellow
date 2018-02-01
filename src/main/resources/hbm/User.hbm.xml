@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.yellow.table.User" table="user" schema="yellow">
+        <id name="uid" column="uid"/>
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
+        <property name="alias" column="alias"/>
+        <property name="lastLoginTime" column="last_login_time"/>
+        <property name="lastLoginIp" column="last_login_ip"/>
+        <property name="token" column="token"/>
+    </class>
+</hibernate-mapping>

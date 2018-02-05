@@ -1,6 +1,5 @@
 package com.yellow.utils
 
-import com.yellow.apidoc.ApiCommon
 
 object ResultUtil {
 

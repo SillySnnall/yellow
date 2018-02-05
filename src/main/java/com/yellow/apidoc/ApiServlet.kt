@@ -13,16 +13,16 @@ import javax.servlet.http.HttpServletResponse
 class ApiServlet : BaseServlet() {
 
     override fun doData(request: HttpServletRequest, response: HttpServletResponse) {
-        val interfName = request.getParameter(ApiCommon.interfName)
-        if (interfName == null) {
-            returnClient(ResultUtil.errorJson(ResultUtil.paramEmpty(ApiCommon.interfName)))
-            return
-        }
-        val apiData = ApiCommon.getApiData(interfName)
-        if (apiData != null) {
-            returnClient(ResultUtil.successJson(apiData))
-        } else {
-            returnClient(ResultUtil.errorJson("没有这个接口"))
-        }
+//        val interfName = request.getParameter(ApiCommon.interfName)
+//        if (interfName == null) {
+//            returnClient(ResultUtil.errorJson(ResultUtil.paramEmpty(ApiCommon.interfName)))
+//            return
+//        }
+//        val apiData = ApiCommon.getApiData(interfName)
+//        if (apiData != null) {
+//            returnClient(ResultUtil.successJson(apiData))
+//        } else {
+//            returnClient(ResultUtil.errorJson("没有这个接口"))
+//        }
     }
 }

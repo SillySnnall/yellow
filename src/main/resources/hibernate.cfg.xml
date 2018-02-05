@@ -1,21 +1,29 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-    "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="connection.url">jdbc:mysql://localhost:3306/yellow</property>
-    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://localhost:3306/yellow</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
-    <property name="connection.username">admin</property>
-    <property name="connection.password">admin@123</property>
+        <property name="connection.username">admin</property>
+        <property name="connection.password">admin@123</property>
 
-      <mapping class="com.yellow.table.User"/>
-      <mapping resource="hbm/User.hbm.xml"/>
-      <!-- <property name="connection.username"/> -->
-    <!-- <property name="connection.password"/> -->
+        <mapping class="com.yellow.table.User"/>
+        <mapping resource="hbm/User.hbm.xml"/>
+        <mapping class="com.yellow.table.ApiList"/>
+        <mapping resource="hbm/ApiList.hbm.xml"/>
+        <mapping class="com.yellow.table.ApiRequest"/>
+        <mapping class="com.yellow.table.ApiReturns"/>
+        <mapping resource="hbm/ApiReturns.hbm.xml"/>
+        <mapping resource="hbm/ApiRequest.hbm.xml"/>
 
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
-  </session-factory>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+        <!--<property name="connection.username">admin</property>-->
+        <!--<property name="connection.password">admin@123</property>-->
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hbm2ddl.auto">update</property> -->
+    </session-factory>
 </hibernate-configuration>

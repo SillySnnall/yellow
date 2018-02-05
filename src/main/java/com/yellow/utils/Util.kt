@@ -15,6 +15,13 @@ import java.util.ArrayList
 
 object Util {
 
+    /**
+     * 控制台输出
+     */
+    fun sys(s: String) {
+        System.out.println(s)
+    }
+
 
     /**
      * 首字母大写

@@ -5,10 +5,14 @@ import org.hibernate.SessionFactory
 import org.hibernate.Transaction
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder
 import org.hibernate.cfg.Configuration
+import org.hibernate.criterion.Restrictions
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import java.util.*
+import javax.persistence.criteria.Root
+import javax.persistence.criteria.CriteriaBuilder
+
 
 class UserTest {
     private var sessionFactory: SessionFactory? = null
@@ -31,13 +35,18 @@ class UserTest {
 
     @Test
     fun testSaveUser() {
-        val user = com.yellow.table.User()
-        user.username = "李四"
-        user.password = "123456"
-        user.alias = "小四"
-        user.lastLoginTime = Date().time
-        user.lastLoginIp = "192.168.1.3"
-        session!!.save(user)//保存对象进入数据库
+        for (i in 0 until 10) {
+            val user = com.yellow.table.User()
+            user.username = "李四"
+            user.password = "123456"
+            user.alias = "小四"
+            user.lastLoginTime = Date().time
+            user.lastLoginIp = "192.168.1.3"
+            session!!.save(user)//保存对象进入数据库
+            session!!.flush()
+            session!!.evict(user)
+        }
+
     }
 
     @Test
@@ -68,7 +77,7 @@ class UserTest {
     @Test// 有代理对象，不会每次走数据库，没有数据，会报ObjectNotFoundException
     fun testLoadUser() {
         try {
-            val user = session!!.load(com.yellow.table.User::class.java,1)
+            val user = session!!.load(com.yellow.table.User::class.java, 1)
             System.out.println("${user.uid}")
         } catch (e: Exception) {
             System.out.println("没有这条数据")

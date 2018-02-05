@@ -59,6 +59,7 @@
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.2.21" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Hibernate 5.2.12-5.2.12" level="project" />
+    <orderEntry type="library" name="mysql:mysql-connector-java:6.0.6" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.2" level="application_server_libraries" />
     <orderEntry type="module-library">
       <library name="JUnit4">

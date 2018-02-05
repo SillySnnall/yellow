@@ -85,6 +85,7 @@ class ApiRequestTest {
         val config = Configuration().configure()
         //创建服务注册对象
         val serviceRegistry = StandardServiceRegistryBuilder().configure().build()
+//        val serviceRegistry = ServiceRegistryBuilder().applySettings(config.properties).buildServiceRegistry()
         //创建会话工厂对象
 
         sessionFactory = config.buildSessionFactory(serviceRegistry)

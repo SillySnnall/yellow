@@ -1,9 +1,9 @@
 package com.yellow.test
 
+import com.yellow.table.User
 import org.hibernate.Session
 import org.hibernate.SessionFactory
 import org.hibernate.Transaction
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder
 import org.hibernate.cfg.Configuration
 import org.hibernate.criterion.Restrictions
 import org.junit.After
@@ -12,6 +12,9 @@ import org.junit.Test
 import java.util.*
 import javax.persistence.criteria.Root
 import javax.persistence.criteria.CriteriaBuilder
+import org.hibernate.Criteria
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder
+import com.yellow.utils.Util
 
 
 class UserTest {
@@ -24,8 +27,8 @@ class UserTest {
         val config = Configuration().configure()
         //创建服务注册对象
         val serviceRegistry = StandardServiceRegistryBuilder().configure().build()
+//        val serviceRegistry = ServiceRegistryBuilder().applySettings(config.properties).buildServiceRegistry()
         //创建会话工厂对象
-
         sessionFactory = config.buildSessionFactory(serviceRegistry)
         //创建会话对象
         session = sessionFactory!!.openSession()
@@ -52,7 +55,7 @@ class UserTest {
     @Test
     fun testUpdateUser() {
         val user = com.yellow.table.User()
-        user.uid = 1
+        user.uid = 30
         user.username = "李四"
         user.password = "123132"
         user.alias = "小四"
@@ -77,11 +80,32 @@ class UserTest {
     @Test// 有代理对象，不会每次走数据库，没有数据，会报ObjectNotFoundException
     fun testLoadUser() {
         try {
-            val user = session!!.load(com.yellow.table.User::class.java, 1)
+            val user = session!!.load(com.yellow.table.User::class.java, 30) as User
             System.out.println("${user.uid}")
         } catch (e: Exception) {
             System.out.println("没有这条数据")
         }
+    }
+
+    @Test
+    fun testLoadAll() {
+        val criteria = session!!.createCriteria(User::class.java)//创建Criteria对象，此方法需要给出实体类名称
+        val usersEntitys = criteria.list()//调用Criteria方法进行查询
+
+    }
+
+    /**
+     * 条件查询
+     */
+    @Test
+    fun testWhereLoad(){
+        val criteria = session?.createCriteria(User::class.java, "u")
+        //业务：查询出id为1或为2的用户
+        val list = criteria?.add(
+                Restrictions.or(Restrictions.eq("id", 24),
+                Restrictions.eq("id", 30)))
+                ?.list()
+        Util.sys(list.toString())
     }
 
     @After

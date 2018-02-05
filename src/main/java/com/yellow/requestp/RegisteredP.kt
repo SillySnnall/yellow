@@ -2,6 +2,9 @@ package com.yellow.requestp
 
 import com.yellow.apidoc.ApiRequestDoc
 
+/**
+ * 注册的请求参数
+ */
 object RegisteredP {
 
     @ApiRequestDoc("是", "帐号")

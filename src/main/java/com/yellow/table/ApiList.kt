@@ -45,4 +45,12 @@ class ApiList {
 
         return Objects.hash(id, interfUrl, returnType, requestType, interfName, doc, createTime)
     }
+
+    override fun toString(): String {
+        return "{\"id\":$id,\"interfUrl\":\"$interfUrl\",\"returnType\":\"$returnType\",\"requestType\":\"$requestType\",\"interfName\":\"$interfName\",\"doc\":\"$doc\",\"createTime\":\"$createTime\"}"
+    }
+
+     fun toApi(): String {
+        return "{\"interfUrl\":\"$interfUrl\",\"returnType\":\"$returnType\",\"requestType\":\"$requestType\",\"interfName\":\"$interfName\",\"doc\":\"$doc\"}"
+    }
 }

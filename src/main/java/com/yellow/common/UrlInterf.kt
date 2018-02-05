@@ -9,7 +9,7 @@ object UrlInterf{
     // 斜杠
     const val SLASH= "/"
     // ApiListServlet
-    const val API_LIST = "api_list"
+    const val API_LIST = "apilist"
     // API
     const val API= "api"
 

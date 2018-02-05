@@ -1,11 +1,11 @@
 package com.yellow.table
 
 import com.yellow.apidoc.ApiReturnDoc
+import org.hibernate.annotations.Table
 import java.util.Objects
 import javax.persistence.*
 
 @Entity
-@Table(name = "user", schema = "yellow", catalog = "")
 class User {
     @ApiReturnDoc("用户唯一标识符,uid")
     @get:Id
@@ -31,6 +31,13 @@ class User {
     @get:Basic
     @get:Column(name = "token")
     var token: String? = null
+
+    constructor(username: String?, password: String?) {
+        this.username = username
+        this.password = password
+    }
+
+    constructor()
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

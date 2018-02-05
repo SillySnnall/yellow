@@ -45,4 +45,13 @@ class ApiRequest {
 
         return Objects.hash(id, paramName, paramType, requiredIs, doc, interfName, createTime)
     }
+
+    override fun toString(): String {
+        return "ApiRequest(id:$id, paramName:$paramName, paramType:$paramType, requiredIs:$requiredIs, doc:$doc, interfName:$interfName, createTime:$createTime)"
+    }
+
+    fun toApi():String{
+        return "{\"paramName\":\"$paramName\",\"paramType\":\"$paramType\",\"requiredIs\":\"$requiredIs\",\"doc\":\"$doc\"}"
+    }
+
 }

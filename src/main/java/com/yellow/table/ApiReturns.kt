@@ -43,8 +43,10 @@ class ApiReturns {
     }
 
     override fun toString(): String {
-        return "ApiReturns(id=$id, paramName=$paramName, paramType=$paramType, doc=$doc, interfName=$interfName, createTime=$createTime)"
+        return "ApiReturns(id:$id, paramName:$paramName, paramType:$paramType, doc:$doc, interfName:$interfName, createTime:$createTime)"
     }
 
-
+    fun toApi():String{
+        return "{\"paramName\":\"$paramName\",\"paramType\":\"$paramType\",\"doc\":\"$doc\"}"
+    }
 }

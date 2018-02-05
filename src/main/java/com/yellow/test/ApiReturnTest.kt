@@ -1,9 +1,6 @@
 package com.yellow.test
 
-import com.yellow.apidoc.ApiRequestDoc
 import com.yellow.apidoc.ApiReturnDoc
-import com.yellow.table.ApiList
-import com.yellow.table.ApiRequest
 import com.yellow.table.ApiReturns
 import com.yellow.utils.Util
 import org.hibernate.Session
@@ -34,7 +31,7 @@ class ApiReturnTest {
      */
     @Test
     fun addApiReturns() {
-        for ((key, value) in getRequest()) {
+        for ((key, value) in getReturn()) {
             val list = session!!.createCriteria(ApiReturns::class.java).add(Restrictions.eq("paramName", value.paramName)).list()
             if (list.size != 0) {
                 Util.sys("${value.paramName} 参数已存在")
@@ -50,7 +47,7 @@ class ApiReturnTest {
     /**
      * 获取字段信息
      */
-    private fun getRequest(): MutableMap<String, ApiReturns> {
+    private fun getReturn(): MutableMap<String, ApiReturns> {
         val requestList = mutableMapOf<String, ApiReturns>()
         val clz = Class.forName("com.yellow.table.$TABLE")
         // 注解查找
@@ -88,6 +85,7 @@ class ApiReturnTest {
         val config = Configuration().configure()
         //创建服务注册对象
         val serviceRegistry = StandardServiceRegistryBuilder().configure().build()
+//        val serviceRegistry = ServiceRegistryBuilder().applySettings(config.properties).buildServiceRegistry()
         //创建会话工厂对象
 
         sessionFactory = config.buildSessionFactory(serviceRegistry)

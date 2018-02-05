@@ -21,6 +21,8 @@ import org.junit.Before
 import org.junit.Test
 import java.util.*
 
+
+
 /**
  * 接口数据
  */
@@ -63,8 +65,8 @@ class ApiListTest {
         val config = Configuration().configure()
         //创建服务注册对象
         val serviceRegistry = StandardServiceRegistryBuilder().configure().build()
+//        val serviceRegistry = ServiceRegistryBuilder().applySettings(config.properties).buildServiceRegistry()
         //创建会话工厂对象
-
         sessionFactory = config.buildSessionFactory(serviceRegistry)
         //创建会话对象
         session = sessionFactory!!.openSession()

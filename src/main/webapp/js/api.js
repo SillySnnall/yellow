@@ -3,8 +3,11 @@ $(document).ready(function () {
 });
 
 // 首次数据请求
-$.get("http://localhost:8080/registered", {name: "John", time: "2pm"},
+$.get("http://localhost:8080/apilist",
     function (data) {
-        alert("Data Loaded: " + data);
+        let parse = JSON.parse(data).result;
+        for (let i = 0; i < parse.length; i++) {
+            $(".ul_li").append("<li class=\"active\"><a href=\"#\">" + parse[i].interfName + "</a></li>");
+        }
     });
 
